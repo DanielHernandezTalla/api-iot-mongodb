@@ -14,7 +14,14 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-    res.send(req.params);
+    controller
+        .getById(req.params.id)
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
 });
 
 router.post("/", (req, res) => {
@@ -28,12 +35,26 @@ router.post("/", (req, res) => {
         });
 });
 
-router.put("/", (req, res) => {
-    res.send("sd");
+router.put("/:id", (req, res) => {
+    controller
+        .update(req.params.id, req.body)
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
 });
 
-router.delete("/", (req, res) => {
-    res.send("sd");
+router.delete("/:id", (req, res) => {
+    controller
+        .del(req.params.id)
+        .then((data) => {
+            res.send(data);
+        })
+        .catch((err) => {
+            res.send(err);
+        });
 });
 
 module.exports = router;
