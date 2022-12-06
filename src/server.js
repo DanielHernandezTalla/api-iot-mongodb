@@ -8,7 +8,6 @@ const Save = require("./providers/saveData");
 
 // Initialization
 const app = express();
-app.use(cors());
 const server = http.createServer(app);
 const io = require("socket.io")(server);
 const client = mqtt.connect(process.env.MQTT_BROKER);
@@ -20,10 +19,30 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Middlewares
 app.use(express.json());
+// app.use(
+//     cors({
+//         origin: "https://www.section.io",
+//     })
+// );
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method"
+    );
+    res.header(
+        "Access-Control-Allow-Methods",
+        "GET, POST, OPTIONS, PUT, DELETE"
+    );
+    res.header("Allow", "GET, POST, OPTIONS, PUT, DELETE");
     next();
 });
+
+// app.use(cors());
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     next();
+// });
 
 // Routes
 app.get("/", (req, res) => {
