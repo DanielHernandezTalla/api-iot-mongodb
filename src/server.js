@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 const http = require("http");
 const mqtt = require("mqtt");
 const path = require("path");
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Middlewares
 app.use(express.json());
+app.use(cors());
 
 // Routes
 app.get("/", (req, res) => {
