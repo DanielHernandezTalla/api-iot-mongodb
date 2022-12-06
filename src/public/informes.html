@@ -1,0 +1,112 @@
+<!-- TODO: Implementación de dashboard  -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Things IOT</title>
+        <meta
+            name="description"
+            content="Proyecto del internet de las cosas IOT"
+        />
+        <!-- Meta etiquetas de configuracion -->
+        <meta name="theme-color" content="#A9ABEF" />
+        <meta name="MobileOptimized" content="width" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <link rel="shortcut icon" href="./favicon.ico" />
+        <link rel="apple-touch-icon" href="./favicon.ico" />
+        <link rel="apple-touch-startup-image" href="./favicon.ico" />
+
+        <!-- manifest -->
+        <link rel="manifest" href="./manifest.json" />
+
+        <!-- Tipografias -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Iconos -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        />
+
+        <!-- Hojas de estilo -->
+        <link rel="stylesheet" href="./style.css" />
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+
+    <body>
+        <div class="cotainer">
+            <header>
+                <div class="header-content">
+                    <div class="nav">
+                        <a href="/">Things IOT</a>
+                        <div>
+                            <h1 class="title-desktop">Informes</h1>
+                            <button class="menu-button">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h1 class="title-mobile">Informes</h1>
+                </div>
+            </header>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">Informes</a></li>
+                    <li><a href="/notifications.html">Notifications</a></li>
+                </ul>
+            </div>
+            <div class="informe">
+                <div class="date">
+                    <button><i class="bi bi-chevron-left"></i></button>
+                    <span>4-10 de diciembre</span>
+                    <button><i class="bi bi-chevron-right"></i></button>
+                </div>
+                <div class="item">
+                    <h3>
+                        Temperatura en relacion a las apertura de las puertas
+                    </h3>
+                    <canvas id="myChart" class="myChart"></canvas>
+                </div>
+                <div class="item">
+                    <h3>Informe</h3>
+                    <p>
+                        <small>R2</small><br />
+                        Podemos concluir que la presion de los datos es de
+                        <b id="r2">.68%</b>
+                    </p>
+                    <p>
+                        <small>Interseccion</small><br />
+                        <b id="intersection">3</b>
+                    </p>
+                    <p>
+                        <small>Pendiente</small><br />
+                        La magnitud de cambio en la temperatura es de:
+                        <b id="slope">5</b>
+                    </p>
+                    <p>
+                        <small>Pendiente Interseccion</small><br />
+                        La relacion entre la temperatura y las aperturas de las
+                        puertas es:
+                        <b id="function">3 -5x</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script src="./app.js" type="module"></script>
+    </body>
+</html>

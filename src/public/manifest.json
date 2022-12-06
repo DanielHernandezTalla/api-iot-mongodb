@@ -1,0 +1,39 @@
+{
+    "name": "Things IOT",
+    "short_name": "Things IOT",
+    "description": "Proyecto del internet de las cosas IOT",
+    "background_color": "#333333",
+    "theme_color":"#333333",
+    "orientation": "portrait",
+    "display": "standalone",
+    "start_url":"./utm_source=web_app_manifest",
+    "scope": "./",
+    "lang": "es-MX",
+    "icons": [
+        {
+            "src": "./images/favicon512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "./images/favicon128.png",
+            "sizes": "128X128",
+            "type": "image/png"
+        },
+        {
+            "src": "./images/favicon64.png",
+            "sizes": "64x64",
+            "type": "image/png"
+        },
+        {
+            "src": "./images/favicon24.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "./images/favicon16.png",
+            "sizes": "16x16",
+            "type": "image/png"
+        }
+    ]
+}

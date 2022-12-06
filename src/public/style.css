@@ -1,0 +1,335 @@
+:root {
+    --template-height-row: 180px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+/* Header */
+.cotainer {
+    position: relative;
+    background: linear-gradient(
+            194.19deg,
+            rgba(49, 131, 176, 0.2) 12.44%,
+            rgba(0, 0, 0, 0) 100%
+        ),
+        linear-gradient(
+            192.05deg,
+            #ffffff 0%,
+            rgba(108, 143, 233, 0.974546) 0.01%,
+            rgba(115, 139, 249, 0.980676) 26.55%,
+            rgba(169, 171, 239, 0.988136) 54.91%,
+            #dab7eb 100%
+        );
+    width: 100%;
+    min-height: 100vh;
+    color: white;
+}
+
+header {
+    padding: 16px 32px;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav button {
+    border: none;
+    outline: none;
+    padding: 4px;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.nav button:hover {
+    transform: scale(1.1);
+}
+
+header a {
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+}
+
+h1 {
+    padding-top: 96px;
+    font-weight: 400;
+}
+
+.title-desktop {
+    display: none;
+}
+
+/* Menu */
+.menu {
+    display: none;
+    position: absolute;
+    right: 32px;
+    top: 42px;
+}
+
+.menu-visible {
+    display: block;
+}
+
+.menu ul {
+    border-radius: 8px;
+    border: 1px solid #dab7eb;
+    background: rgba(16, 16, 16, 0.27);
+    overflow: hidden;
+}
+
+.menu li {
+    list-style: none;
+}
+
+.menu a {
+    width: 100%;
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.menu a:hover {
+    transform: scale(1.1);
+    background-color: #3339;
+}
+
+/* Dashboard */
+.dashboard,
+.notifications,
+.informe {
+    width: 100%;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.tem,
+.notification {
+    padding: 16px;
+    border-radius: 8px;
+    background: rgba(16, 16, 16, 0.27);
+}
+
+.notification div {
+    padding-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.notification h2,
+.notification span {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+.notification p {
+    font-weight: 500;
+    padding-bottom: 4px;
+}
+
+.tem span {
+    display: inline-block;
+    width: 100%;
+    font-size: 42px;
+    text-align: right;
+}
+
+.tem h2 {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+}
+
+/* Item for 2 columns */
+.dashboard-item-2 {
+    display: flex;
+    justify-content: space-between;
+    color: black;
+}
+
+.dashboard-item-2 > * {
+    width: calc(50% - 8px);
+    padding: 16px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.dashboard-item-2 span {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    font-size: 24px;
+}
+
+.dashboard-item-2 h3 {
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.dashboard-item-3 {
+    padding: 16px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: black;
+    gap: 8px;
+    background-color: white;
+    text-align: center;
+}
+
+.dashboard-item-3-fill {
+    grid-column: span 3;
+}
+
+.dashboard-item-3 h2 {
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.dashboard-item-3 span {
+    font-weight: 600;
+    font-size: 24px;
+}
+
+.dashboard-item-3-fill h2 {
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Graficos for capacidades */
+.dashboard-progress {
+    position: relative;
+    /* background-color: #dab7eb; */
+}
+
+.dashboard-progress h2 {
+    /* position: absolute; */
+    text-align: center;
+}
+
+.progress {
+    fill: none;
+    stroke-width: 10;
+    stroke: rgb(15, 123, 212);
+    stroke-dasharray: 251;
+    stroke-dashoffset: 0;
+    transform: rotate(-180deg);
+    transform-origin: center;
+    stroke-linecap: round;
+}
+
+.progress2 {
+    fill: none;
+    stroke: rgb(231, 4, 4);
+    stroke-width: 10;
+    transform: rotate(-180deg);
+}
+
+.dashboard-progress-percentage {
+    position: absolute;
+    top: 42px;
+    left: 0;
+    right: 0;
+}
+
+/* myChart */
+.myChart {
+    width: 100%;
+    border-radius: 8px;
+    /* background-color: orange; */
+}
+
+.informe .item {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: white;
+    color: #3339;
+}
+
+.informe .item p {
+    padding: 4px 0;
+}
+.date {
+    margin: 0 auto;
+}
+.date button {
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    padding: 4px;
+    margin: 0 4px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.date button:active {
+    transform: scale(1.1);
+}
+
+@media (min-width: 1024px) {
+    .nav div {
+        display: flex;
+        align-items: center;
+    }
+    .title-mobile {
+        display: none;
+    }
+
+    .title-desktop {
+        display: block !important;
+    }
+
+    .cotainer {
+        background: #f3ece5;
+    }
+
+    header {
+        height: 250px;
+        background-image: url("./images/backgroundHeader.jpg");
+        background-size: cover;
+        background-position: center;
+        padding: 0;
+    }
+
+    h1 {
+        padding-top: 0px;
+        font-size: 18px;
+    }
+
+    .header-content {
+        padding: 16px;
+        display: flex;
+        justify-content: space-between;
+        background-color: rgba(16, 16, 16, 0.27);
+    }
+
+    .dashboard,
+    .notifications,
+    .informe {
+        max-width: 1024px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .date {
+        color: #3339;
+    }
+}

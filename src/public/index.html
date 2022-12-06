@@ -1,0 +1,299 @@
+<!-- TODO: Implementación de dashboard  -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Things IOT</title>
+        <meta
+            name="description"
+            content="Proyecto del internet de las cosas IOT"
+        />
+        <!-- Meta etiquetas de configuracion -->
+        <meta name="theme-color" content="#A9ABEF" />
+        <meta name="MobileOptimized" content="width" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta
+            name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent"
+        />
+        <link rel="shortcut icon" href="./favicon.ico" />
+        <link rel="apple-touch-icon" href="./favicon.ico" />
+        <link rel="apple-touch-startup-image" href="./favicon.ico" />
+
+        <!-- manifest -->
+        <link rel="manifest" href="./manifest.json" />
+
+        <!-- Tipografias -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Iconos -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        />
+
+        <!-- Hojas de estilo -->
+        <link rel="stylesheet" href="./style.css" />
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+
+    <body>
+        <div class="cotainer">
+            <header>
+                <div class="header-content">
+                    <div class="nav">
+                        <a href="/">Things IOT</a>
+                        <div>
+                            <h1 class="title-desktop">Refrigerador</h1>
+                            <button class="menu-button">
+                                <i class="bi bi-three-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h1 class="title-mobile">Refrigerador</h1>
+                </div>
+            </header>
+            <div class="menu">
+                <ul>
+                    <li><a href="/informes.html">Informes</a></li>
+                    <li><a href="/notifications.html">Notifications</a></li>
+                </ul>
+            </div>
+            <div class="dashboard">
+                <!-- ====================== Temperatura ====================== -->
+                <div class="tem">
+                    <div class="dash-chid-cont">
+                        <span id="temperatura">3°</span>
+                        <h2>Temperatura</h2>
+                    </div>
+                </div>
+                <!-- ====================== Puerta ====================== -->
+                <div class="dashboard-item-2 puerta">
+                    <div class="dash-chid-cont">
+                        <h3>Puerta principal</h3>
+                        <span id="principal">Cerrada</span>
+                    </div>
+                    <div class="dash-chid-cont">
+                        <h3>Congelador</h3>
+                        <span id="congelador">Cerrada</span>
+                    </div>
+                </div>
+                <!-- ====================== Aperturas ====================== -->
+                <div class="dashboard-item-2 puerta-aperturas">
+                    <div class="dash-chid-cont">
+                        <h3>Aperturas del refrigerador</h3>
+                        <span id="aperturas">0</span>
+                    </div>
+                    <div class="dash-chid-cont">
+                        <h3>Aperturas semanales</h3>
+                        <span id="aperturasSemanal">0</span>
+                    </div>
+                </div>
+                <!-- <div class="consumo">
+                    <div class="grafico">
+                        <div class="grafico-bar">
+                            <div
+                                id="day-1"
+                                class="grafico-bar-1"
+                                style="height: 50%"
+                            ></div>
+                            <div
+                                id="day-2"
+                                class="grafico-bar-2"
+                                style="height: 3%"
+                            ></div>
+                            <div
+                                id="day-3"
+                                class="grafico-bar-3"
+                                style="height: 67%"
+                            ></div>
+                            <div
+                                id="day-4"
+                                class="grafico-bar-4"
+                                style="height: 44%"
+                            ></div>
+                            <div
+                                id="day-5"
+                                class="grafico-bar-5"
+                                style="height: 27%"
+                            ></div>
+                            <div
+                                id="day-6"
+                                class="grafico-bar-6"
+                                style="height: 88%"
+                            ></div>
+                            <div
+                                id="day-7"
+                                class="grafico-bar-7"
+                                style="height: 22%"
+                            ></div>
+                        </div>
+                        <div class="grafico-days">
+                            <div class="grafico-day">Domingo</div>
+                            <div class="grafico-day">Lunes</div>
+                            <div class="grafico-day">Martes</div>
+                            <div class="grafico-day">Miercoles</div>
+                            <div class="grafico-day">Jueves</div>
+                            <div class="grafico-day">Viernes</div>
+                            <div class="grafico-day">Sabado</div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- ====================== Capacidades ====================== -->
+                <div class="dashboard-item-3">
+                    <div class="dashboard-item-3-fill">
+                        <h2>Capacidades</h2>
+                    </div>
+                    <div class="dashboard-progress">
+                        <div class="svg">
+                            <svg width="100" height="100">
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress2"
+                                ></circle>
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress"
+                                    id="pS"
+                                ></circle>
+                            </svg>
+                        </div>
+                        <div class="dashboard-progress-percentage">
+                            <p id="pSP" class="percentage">0%</p>
+                        </div>
+                        <h2>Puerta superior</h2>
+                    </div>
+                    <div class="dashboard-progress">
+                        <div class="svg">
+                            <svg width="100" height="100">
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress2"
+                                ></circle>
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress"
+                                    id="pI"
+                                ></circle>
+                            </svg>
+                        </div>
+                        <div class="dashboard-progress-percentage">
+                            <p id="pIP" class="percentage">0%</p>
+                        </div>
+                        <h2>Puerta inferior</h2>
+                    </div>
+                    <div class="dashboard-progress">
+                        <div class="svg">
+                            <svg width="100" height="100">
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress2"
+                                ></circle>
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress"
+                                    id="plS"
+                                ></circle>
+                            </svg>
+                        </div>
+                        <div class="dashboard-progress-percentage">
+                            <p id="plSP" class="percentage">0%</p>
+                        </div>
+                        <h2>Plataforma superior</h2>
+                    </div>
+                    <div class="dashboard-progress">
+                        <div class="svg">
+                            <svg width="100" height="100">
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress2"
+                                ></circle>
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress"
+                                    id="plM"
+                                ></circle>
+                            </svg>
+                        </div>
+                        <div class="dashboard-progress-percentage">
+                            <p id="plMP" class="percentage">0%</p>
+                        </div>
+                        <h2>Plataforma media</h2>
+                    </div>
+                    <div class="dashboard-progress">
+                        <div class="svg">
+                            <svg width="100" height="100">
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress2"
+                                ></circle>
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress"
+                                    id="plI"
+                                ></circle>
+                            </svg>
+                        </div>
+                        <div class="dashboard-progress-percentage">
+                            <p id="plIP" class="percentage">0%</p>
+                        </div>
+                        <h2>Plataforma inferior</h2>
+                    </div>
+                    <div class="dashboard-progress">
+                        <div class="svg">
+                            <svg width="100" height="100">
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress2"
+                                ></circle>
+                                <circle
+                                    r="40"
+                                    cx="50"
+                                    cy="50"
+                                    class="progress"
+                                    id="plVerdura"
+                                ></circle>
+                            </svg>
+                        </div>
+                        <div class="dashboard-progress-percentage">
+                            <p id="plVerduraP" class="percentage">0%</p>
+                        </div>
+                        <h2>Verdura</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./app.js"></script>
+    </body>
+</html>
